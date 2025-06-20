@@ -39,7 +39,7 @@ This project implements a hybrid deep learning model combining **RNN (LSTM)** an
    - return "Spam" if prediction[0][0] > 0.5 else "Not Spam"
 
 # Example:
-- print(predict_spam("WIN A FREE PRIZE NOW!"))  (Output: Spam)
+- print(predict_spam("WIN A FREE PRIZE NOW!")) [Output: Spam]
 
 ### 3. Interactive Input:
 - while True:
