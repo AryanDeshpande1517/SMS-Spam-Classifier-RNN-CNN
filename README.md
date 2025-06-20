@@ -24,29 +24,29 @@ This project implements a hybrid deep learning model combining **RNN (LSTM)** an
 
 ## Usage:
 ### 1. Load the Model and Tokenizer:
-from keras.models import load_model
-import pickle
-model = load_model("spam_classifier.keras")
-with open("tokenizer.pkl", "rb") as handle:
-    tokenizer = pickle.load(handle)
+- from keras.models import load_model
+- import pickle
+- model = load_model("spam_classifier.keras")
+- with open("tokenizer.pkl", "rb") as handle:
+    - tokenizer = pickle.load(handle)
 
 ### 2. Predict Spam/Ham:
-from tensorflow.keras.preprocessing.sequence import pad_sequences
-def predict_spam(message):
-    sequence = tokenizer.texts_to_sequences([message])
-    padded_sequence = pad_sequences(sequence, maxlen=100)
-    prediction = model.predict(padded_sequence)
-    return "Spam" if prediction[0][0] > 0.5 else "Not Spam"
+- from tensorflow.keras.preprocessing.sequence import pad_sequences
+- def predict_spam(message):
+   - sequence = tokenizer.texts_to_sequences([message])
+   - padded_sequence = pad_sequences(sequence, maxlen=100)
+   - prediction = model.predict(padded_sequence)
+   - return "Spam" if prediction[0][0] > 0.5 else "Not Spam"
 
 # Example:
-print(predict_spam("WIN A FREE PRIZE NOW!"))  (Output: Spam)
+- print(predict_spam("WIN A FREE PRIZE NOW!"))  (Output: Spam)
 
 ### 3. Interactive Input:
-while True:
-    user_input = input("Enter message (or 'quit' to exit): ")
-    if user_input.lower() == "quit":
-        break
-    print("Prediction:", predict_spam(user_input))
+- while True:
+    - user_input = input("Enter message (or 'quit' to exit): ")
+    - if user_input.lower() == "quit":
+       - break
+    - print("Prediction:", predict_spam(user_input))
 
 ## Dataset:
 - **Source**: Custom CSV (sample_texts.csv)  
